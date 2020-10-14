@@ -11,7 +11,7 @@ class Stack(object):
 
     # 返回栈顶元素
     def peek(self):
-        return self.items[len(self.items)-1]
+        return self.items[-1]
 
     # 返回栈大小
     def size(self):
@@ -23,7 +23,10 @@ class Stack(object):
 
     # 出栈
     def pop(self):
-        return self.items.pop()
+        if self.items:
+            return self.items.pop()
+        else:
+            raise LookupError("stack is empty!")
 
 
 if __name__ == "__main__":
@@ -38,5 +41,6 @@ if __name__ == "__main__":
     print("6:",my_stack.pop())
     print("7:",my_stack.size())
     print("8:",my_stack.is_empty())
+    my_stack.pop()
 
 
